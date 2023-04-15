@@ -8,7 +8,7 @@
             <h2>Lista Posts</h2>
             <a class="btn btn-secondary" href="{{ route('posts.create') }}"><i class="fa-solid fa-plus"></i> Scrivi un post</a>
         </div>
-        @foreach ($posts as $post)
+        @forelse ($posts as $post)
             <div class="col-12 ">
                 <div class="card my-5 shadow">
                     <div class="card-header d-flex justify-content-between align-items-center">
@@ -33,6 +33,7 @@
                         <form action="{{ route('saveComment', $post->id) }}" method="post">
                             @csrf
                             <div class="input-group mb-3">
+                            <input type="hidden" value="Salvo" class="form-control" name="author" />
                                 <textarea type="text" name="comment" class="form-control" placeholder="Scrivi un commento"
                                     aria-label="Recipient's username" aria-describedby="button-addon2"></textarea>
                                 <button class="btn btn-secondary" type="submit" id="button-addon2">Commenta</button>
@@ -80,15 +81,17 @@
                         </div>
                     </div>
                 </div>
-        @endforeach
+                @empty 
+                Non ci sono Posts
+        @endforelse
 
 
     </div>
 @endsection
 
-@push('additional-scripts')
+{{-- @push('additional-scripts')
     <script>
-        /* let myMds = @json($post->id);
-                let buttonNumbers = JSON.parse({{ json_encode($post->id) }}); */
+      let myMds = @json($post->id);
+                let buttonNumbers = JSON.parse({{ json_encode($post->id) }});
     </script>
-@endpush
+@endpush --}}

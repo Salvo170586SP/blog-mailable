@@ -118,6 +118,7 @@ class PostController extends Controller
         $new_comment = new Comment();
         //il post_id dei comment è uguale all'id del post
         $new_comment->post_id = $id;
+        $new_comment->author = $request->author;
         $new_comment->comment = $request->comment;
         $new_comment->save();
 
