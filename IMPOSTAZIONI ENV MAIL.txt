@@ -1,0 +1,10 @@
+# start mailtrap configuration    
+MAIL_MAILER=smtp
+MAIL_HOST=sandbox.smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=1abb6c62a1ff4c
+MAIL_PASSWORD=a42303fb183928
+MAIL_ENCRYPTION=tls
+# end mailtrap  configuration
+MAIL_FROM_ADDRESS="noreply@blogmailable.com"
+MAIL_FROM_NAME="${APP_NAME}"
